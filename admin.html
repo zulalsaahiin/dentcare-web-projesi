@@ -5,22 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="noindex">
     <title>Yönetim Paneli | DentCare</title>
+    <link href="img/favicon.svg" rel="icon" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/admin.css">
+    <link href="css/site.css?v=3" rel="stylesheet">
+    <link rel="stylesheet" href="css/admin.css?v=2">
 </head>
 <body>
     <a class="atlama" href="#panel-icerik">İçeriğe geç</a>
 <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-xxl bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="index.html" class="navbar-brand p-0">
             <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Menüyü aç veya kapat" aria-controls="navbarCollapse" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -65,7 +67,7 @@
 
                 <a href="contact.html" class="nav-item nav-link">İletişim</a>
             </div>
-            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Site içinde ara"><i
                     class="fa fa-search"></i></button>
             <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Randevu</a>
         </div>
@@ -73,18 +75,20 @@
     <!-- Navbar End -->
 
     <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-label="Site içi arama">
         <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal"
-                        aria-label="Kapat"></button>
-                </div>
+            <div class="modal-content" style="background:rgba(9,30,62,.95);">
+                <div class="modal-header border-0"><button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button></div>
                 <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3"
-                            placeholder="Aramak istediğiniz kelime">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    <div class="w-100" style="max-width:680px;">
+                        <form data-site-arama class="site-arama">
+                            <label for="site-arama" class="text-white h3 mb-3">Sitede Arayın</label>
+                            <div class="input-group">
+                                <input id="site-arama" name="arama" type="search" class="form-control bg-transparent text-white border-primary p-3" placeholder="Hizmet, birim veya sayfa adı" minlength="2" maxlength="100" required>
+                                <button class="btn btn-primary px-4" type="submit" aria-label="Ara"><i class="bi bi-search" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
+                        <div data-arama-sonuclari class="site-arama-sonuclari bg-white p-4 mt-4" role="region" aria-label="Arama sonuçları" tabindex="-1" hidden></div>
                     </div>
                 </div>
             </div>
@@ -147,12 +151,13 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Bizi Takip Edin</h3>
+                    <h3 class="text-white mb-4">Sosyal Medya</h3>
+                    <p class="small">Örnek platform bağlantılarıdır; kliniğe ait hesaplar değildir.</p>
                     <div class="d-flex">
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-twitter fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram platformu (örnek bağlantı)"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook platformu (örnek bağlantı)"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://x.com/" target="_blank" rel="noopener" aria-label="X platformu (örnek bağlantı)"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn platformu (örnek bağlantı)"><i class="fab fa-linkedin-in fw-normal"></i></a>
                     </div>
                 </div>
 
@@ -181,7 +186,8 @@
 </footer>
 <!-- Footer End -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/panel-verileri.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="js/panel-verileri.js?v=3"></script>
+    <script src="js/admin.js?v=3"></script>
+    <script src="js/site.js"></script>
 </body>
 </html>

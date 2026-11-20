@@ -18,6 +18,7 @@ button,a,input,select,textarea,summary { outline-offset:4px; }
 .panel-ust { display:flex; align-items:center; justify-content:space-between; gap:20px; padding-bottom:24px; margin-bottom:24px; border-bottom:3px solid var(--mavi); }
 .ust-etiket { margin:0 0 6px; color:#087ca5; font-size:14px; font-weight:600; letter-spacing:.08em; }
 .panel-ana h1 { font-size:clamp(27px,3vw,36px); line-height:1.25; color:var(--lacivert); margin:0; }
+.panel-ana h1:focus { outline:none; }
 .panel-ana h2 { color:var(--lacivert); font-size:26px; margin:0 0 12px; }
 p { margin-top:0; }
 .ust-islemler,.satir-islemleri,.form-islemleri { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }

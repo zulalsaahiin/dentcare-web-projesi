@@ -88,6 +88,7 @@
         if (section === "sliderler") return "Sıra: " + item.sira;
         if (section === "istatistikler") return item.deger + " · " + item.donem;
         if (section === "iletisim") return item.telefon;
+        if (section === "hekimler") return item.uzmanlik;
         return item.sayfa || "—";
     }
     function listView() {
@@ -170,7 +171,7 @@
         cfg.fields.forEach(f => {
             const group = el("div", "alan" + (f.type === "textarea" ? " tam" : ""));
             const label = el("label", "", f.label + (f.required ? " *" : ""));
-            label.htmlFor = "panel-" + f.key;
+            label.htmlFor = "panel-alan-" + f.key;
             const input = el(f.type === "textarea" ? "textarea" : f.type === "select" ? "select" : "input");
             input.id = label.htmlFor; input.name = f.key; input.required = f.required;
             if (f.type !== "textarea" && f.type !== "select") input.type = f.type;

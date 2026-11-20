@@ -7,6 +7,14 @@
             label: "Hizmetler", singular: "Hizmet", description: "Hizmet açıklamalarını, özelliklerini ve örnek ücretleri düzenleyin.",
             fields: [field("baslik", "Hizmet Adı"), field("ucret", "Örnek Ücret (TL)", "number"), field("ozet", "Kısa Açıklama", "textarea"), field("icerik", "Detay Açıklaması", "textarea"), field("ozellikler", "Özellikler (her satıra bir özellik)", "textarea"), field("gorsel", "Görsel Yolu", "text", false), field("sayfa", "Detay Sayfası", "text", false), status], files: "image"
         },
+        hekimler: {
+            label: "Hekimler", singular: "Hekim", description: "Örnek hekim adlarını, görev alanlarını ve tanıtım görsellerini düzenleyin.",
+            fields: [field("baslik", "Hekim Adı"), field("uzmanlik", "Görev Alanı"), field("icerik", "Tanıtım Metni", "textarea"), field("gorsel", "Görsel Yolu"), status], files: "image"
+        },
+        yorumlar: {
+            label: "Hasta Yorumları", singular: "Örnek Yorum", description: "Ders projesi için hazırlanmış kurgusal yorumları yönetin; gerçek hasta bilgisi kullanmayın.",
+            fields: [field("baslik", "Örnek Profil Adı"), field("icerik", "Yorum Metni", "textarea"), field("gorsel", "Profil Görseli Yolu", "text", false), status], files: "image"
+        },
         birimler: {
             label: "Birimler", singular: "Birim", description: "Birim tanıtımlarını ve çalışma alanlarını yönetin.",
             fields: [field("baslik", "Birim Adı"), field("icerik", "Birim Açıklaması", "textarea"), field("alanlar", "Çalışma Alanları", "textarea"), field("gorsel", "Görsel Yolu", "text", false), field("sayfa", "Birim Sayfası", "text", false), status], files: "image"
@@ -41,6 +49,13 @@
                 ready("h3", { baslik: "Diş Beyazlatma", ucret: 5000, ozet: "Diş beyazlatma hakkında bilgilendirme.", icerik: "Diş beyazlatma hizmeti hakkında bilgi ve randevu için kliniğimizle iletişime geçebilirsiniz.", ozellikler: "Randevulu muayene\nÜcret bilgilendirmesi", gorsel: "img/service-4.jpg", sayfa: "dis-beyazlatma.html" }),
                 ready("h4", { baslik: "Diş İmplantları", ucret: 15000, ozet: "İmplant hizmeti hakkında değerlendirme.", icerik: "İmplant hizmeti ve değerlendirme süreci hakkında bilgilendirme.", ozellikler: "Kişiye özel planlama\nÜcret bilgilendirmesi", gorsel: "img/service-2.jpg", sayfa: "implant.html" }),
                 ready("h5", { baslik: "Çocuk Diş Hekimliği", ucret: 0, ozet: "Çocuklar ve aileleri için bilgilendirme.", icerik: "Çocukların ağız ve diş sağlığına yönelik değerlendirme ve bilgilendirme.", ozellikler: "Randevulu muayene\nAilelere bilgilendirme", gorsel: "img/about.jpg", sayfa: "cocuk-dis-hekimligi.html" })
+            ],
+            hekimler: [
+                ...[["Deniz Kaya", "Genel Diş Hekimliği"], ["Ece Demir", "Estetik Diş Hekimliği"], ["Mert Aydın", "Çocuk Diş Hekimliği"], ["Selin Yılmaz", "Ortodonti"], ["Can Arslan", "İmplant Tedavisi"]].map(([ad, uzmanlik], i) => ready("hekim" + i, { baslik: "Dt. " + ad, uzmanlik, icerik: "Ders projesi için hazırlanmış kurgusal hekim tanıtımıdır. Fotoğraf şablondaki örnek görseldir.", gorsel: "img/team-" + (i + 1) + ".jpg" }))
+            ],
+            yorumlar: [
+                ready("yorum1", { baslik: "Örnek Hasta 1", icerik: "Randevu süreci ve hizmetler hakkında anlaşılır bilgi verildi. Bu yorum ders projesi için kurgulanmıştır.", gorsel: "img/testimonial-1.jpg" }),
+                ready("yorum2", { baslik: "Örnek Hasta 2", icerik: "Muayene öncesi bilgilendirme ve iletişim sürecinden memnun kaldım. Bu yorum ders projesi için kurgulanmıştır.", gorsel: "img/testimonial-2.jpg" })
             ],
             birimler: [
                 ready("b1", { baslik: "Genel Diş Hekimliği", icerik: "Ağız ve diş sağlığı değerlendirmeleri ile genel diş tedavilerine yönelik hizmet sunar.", alanlar: "Muayene\nGenel diş tedavileri\nAğız bakımı bilgilendirmesi", gorsel: "img/about.jpg", sayfa: "genel-dis-hekimligi.html" }),
@@ -121,6 +136,10 @@
                 if (parsed.version !== 1 || !parsed.records) throw new Error("Kayıt biçimi geçersiz.");
                 const checked = {};
                 for (const section of Object.keys(schema)) {
+                    if (parsed.records[section] === undefined && ["hekimler", "yorumlar"].includes(section)) {
+                        checked[section] = records[section];
+                        continue;
+                    }
                     if (!Array.isArray(parsed.records[section])) throw new Error("Bölüm verisi eksik.");
                     const ids = new Set();
                     checked[section] = parsed.records[section].map(item => {

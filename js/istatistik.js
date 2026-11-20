@@ -44,6 +44,30 @@
         bar.appendChild(svgElement("text", { x: x + 31, y: bottom + 32, "text-anchor": "middle" }, item.ay));
     });
 
+    const mobile = document.getElementById("aylik-mobil-grafik");
+    const scale = document.createElement("p");
+    scale.className = "small text-muted mb-0";
+    scale.textContent = "Her çubuk 0–80 randevu ölçeğindedir.";
+    mobile.appendChild(scale);
+    aylik.forEach(item => {
+        const row = document.createElement("div");
+        row.className = "mobil-grafik-satir";
+        const label = document.createElement("span");
+        label.textContent = item.ad;
+        const track = document.createElement("div");
+        track.className = "mobil-grafik-arka";
+        track.setAttribute("aria-hidden", "true");
+        const fill = document.createElement("div");
+        fill.className = "mobil-grafik-cubuk";
+        fill.style.width = item.sayi / 80 * 100 + "%";
+        track.appendChild(fill);
+        const value = document.createElement("span");
+        value.className = "mobil-grafik-sayi";
+        value.textContent = item.sayi;
+        row.append(label, track, value);
+        mobile.appendChild(row);
+    });
+
     const donut = document.getElementById("hizmet-grafik");
     const radius = 105, circumference = 2 * Math.PI * radius;
     let offset = 0;

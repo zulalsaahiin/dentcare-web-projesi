@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <title>Hakkımızda | DentCare</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
+    <meta content="DentCare, diş hekimliği, ağız ve diş sağlığı" name="keywords">
+    <meta content="Hakkımızda | DentCare — Web Tasarımı dersi için hazırlanmış örnek diş kliniği sitesi." name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="img/favicon.svg" rel="icon" type="image/svg+xml">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -30,9 +30,11 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/site.css?v=3" rel="stylesheet">
 </head>
 
 <body>
+    <a class="icerige-atla" href="#ana-icerik">İçeriğe geç</a>
     <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-grow text-primary m-1" role="status">
@@ -72,11 +74,11 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
+    <nav class="navbar navbar-expand-xxl bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="index.html" class="navbar-brand p-0">
             <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-label="Menüyü aç veya kapat" aria-controls="navbarCollapse" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -118,28 +120,33 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <a href="contact.html" class="nav-item nav-link">İletişim</a>
             </div>
-            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i
+            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Site içinde ara"><i
                     class="fa fa-search"></i></button>
             <a href="appointment.html" class="btn btn-primary py-2 px-4 ms-3">Randevu</a>
         </div>
     </nav>
     <!-- Navbar End -->
+    <div id="ana-icerik" tabindex="-1"></div>
 
 
     <!-- Full Screen Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1">
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-label="Site içi arama">
         <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content" style="background: rgba(9, 30, 62, .7);">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button>
-                </div>
+            <div class="modal-content" style="background:rgba(9,30,62,.95);">
+                <div class="modal-header border-0"><button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Kapat"></button></div>
                 <div class="modal-body d-flex align-items-center justify-content-center">
-                    <div class="input-group" style="max-width: 600px;">
-                        <input type="text" class="form-control bg-transparent border-primary p-3" placeholder="Aramak istediğiniz kelime">
-                        <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+                    <div class="w-100" style="max-width:680px;">
+                        <form data-site-arama class="site-arama">
+                            <label for="site-arama" class="text-white h3 mb-3">Sitede Arayın</label>
+                            <div class="input-group">
+                                <input id="site-arama" name="arama" type="search" class="form-control bg-transparent text-white border-primary p-3" placeholder="Hizmet, birim veya sayfa adı" minlength="2" maxlength="100" required>
+                                <button class="btn btn-primary px-4" type="submit" aria-label="Ara"><i class="bi bi-search" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
+                        <div data-arama-sonuclari class="site-arama-sonuclari bg-white p-4 mt-4" role="region" aria-label="Arama sonuçları" tabindex="-1" hidden></div>
                     </div>
                 </div>
             </div>
@@ -195,30 +202,31 @@
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
                         <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
-                            src="img/about.jpg" style="object-fit: cover;">
+                            src="img/about.jpg" style="object-fit: cover;" alt="Kliniği tanıtmak için kullanılan örnek diş hekimliği fotoğrafı">
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- About End -->
-    
+
 
     <!-- Newsletter Start -->
-    <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index: 1;">
-        <div class="container">
-            <div class="bg-primary p-5">
-                <form class="mx-auto" style="max-width: 600px;">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-white p-3" placeholder="E-posta adresiniz">
-                        <button class="btn btn-dark px-4">Abone Ol</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index:1;">
+        <div class="container"><div class="bg-primary p-4 p-md-5">
+            <form data-abonelik-formu class="mx-auto" style="max-width:600px;">
+                <label for="abonelik-eposta" class="visually-hidden">E-posta adresiniz</label>
+                <div class="input-group">
+                    <input id="abonelik-eposta" name="eposta" type="email" class="form-control border-white p-3" placeholder="E-posta adresiniz" autocomplete="email" maxlength="254" required>
+                    <button class="btn btn-dark px-4" type="submit">Abone Ol</button>
+                </div>
+                <p class="small text-white mt-3 mb-0">Ders projesi demosudur; gerçek abonelik oluşturulmaz.</p>
+                <p class="text-white mt-2 mb-0" data-abonelik-sonucu role="status" aria-live="polite"></p>
+            </form>
+        </div></div>
     </div>
     <!-- Newsletter End -->
-    
+
 
     <!-- Footer Start -->
 <footer>
@@ -253,12 +261,13 @@
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Bizi Takip Edin</h3>
+                    <h3 class="text-white mb-4">Sosyal Medya</h3>
+                    <p class="small">Örnek platform bağlantılarıdır; kliniğe ait hesaplar değildir.</p>
                     <div class="d-flex">
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://x.com/" target="_blank" rel="noopener" aria-label="X"><i class="fab fa-twitter fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram platformu (örnek bağlantı)"><i class="fab fa-instagram fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook platformu (örnek bağlantı)"><i class="fab fa-facebook-f fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://x.com/" target="_blank" rel="noopener" aria-label="X platformu (örnek bağlantı)"><i class="fab fa-twitter fw-normal"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn platformu (örnek bağlantı)"><i class="fab fa-linkedin-in fw-normal"></i></a>
                     </div>
                 </div>
 
@@ -307,6 +316,7 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script src="js/site.js"></script>
 </body>
 
 </html>

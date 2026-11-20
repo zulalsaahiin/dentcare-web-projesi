@@ -12,7 +12,14 @@
 .istatistik-panel { border: 1px solid #dce9ee; height: 100%; }
 .istatistik-panel summary { cursor: pointer; color: #095574; font-weight: 600; }
 .istatistik-tablo th, .istatistik-tablo td { padding: .75rem; }
+.mobil-aylik-grafik { display:none; }
 @media (max-width: 575.98px) {
+    #aylik-grafik { display:none; }
+    .mobil-aylik-grafik { display:grid; gap:15px; padding:12px 0; }
+    .mobil-grafik-satir { display:grid; grid-template-columns:62px minmax(0,1fr) 28px; align-items:center; gap:8px; font-size:14px; color:#34465d; }
+    .mobil-grafik-arka { height:22px; background:#e4edf3; }
+    .mobil-grafik-cubuk { height:100%; background:#087ca5; }
+    .mobil-grafik-sayi { font-weight:700; text-align:right; color:var(--dark); }
     .istatistik-grafik text { font-size: 19px; }
     .istatistik-legend li { flex-wrap: wrap; }
 }
